@@ -307,7 +307,6 @@ export default function MonthlySalesChart() {
 
   // Statistik ma'lumotlar
   const totalSales = series[0].data.reduce((sum, val) => sum + val, 0);
-  const averageSales = Math.round(totalSales / series[0].data.length);
   const maxSales = Math.max(...series[0].data);
   const maxMonthIndex = series[0].data.indexOf(maxSales);
   const maxMonth = options.xaxis?.categories?.[maxMonthIndex] || "";
