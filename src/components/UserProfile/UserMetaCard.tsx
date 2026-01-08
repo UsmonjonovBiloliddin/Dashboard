@@ -78,7 +78,7 @@ export default function UserMetaCard() {
               <div className="w-32 h-32 rounded-full border-4 border-white dark:border-gray-900 shadow-lg overflow-hidden">
                 <img 
                   className="w-full h-full object-cover" 
-                  src="/public/images/user/IMG_9631.JPG" 
+                  src="/images/user/IMG_9631.JPG" 
                   alt="Bilolidddin Usmonjonov" 
                 />
               </div>

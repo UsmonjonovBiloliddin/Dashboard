@@ -22,7 +22,7 @@ export default function UserDropdown() {
         <span className="w-11 mr-3 h-11  border border-gray-200 rounded-full dark:border-gray-800">
           <img
             className="rounded-full h-full w-full object-cover"
-            src="/public/images/user/IMG_9631.JPG"
+            src="/images/user/IMG_9631.JPG"
             alt="user"
           />
         </span>
