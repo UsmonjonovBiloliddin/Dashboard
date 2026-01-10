@@ -24,7 +24,6 @@ export default function UserInfoCard() {
   });
 
   const handleSave = () => {
-    // Handle save logic here
     console.log("Saving changes...", personalInfo);
     closeModal();
   };
@@ -59,19 +58,19 @@ export default function UserInfoCard() {
       {/* Personal Information Card */}
       <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
         {/* Card Header */}
-        <div className="px-6 pt-6 pb-4 border-b border-gray-200 dark:border-gray-800">
-          <div className="flex items-center justify-between">
+        <div className="px-4 sm:px-6 pt-6 pb-4 border-b border-gray-200 dark:border-gray-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/10 rounded-lg">
-                <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
                   Personal Information
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                   Your personal details and contact information
                 </p>
               </div>
@@ -79,9 +78,9 @@ export default function UserInfoCard() {
             
             <button
               onClick={openModal}
-              className="flex items-center gap-2 px-4 py-2.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg font-medium text-sm transition-all duration-300 hover:scale-105"
+              className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg font-medium text-xs sm:text-sm transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
               </svg>
               Edit Info
@@ -90,17 +89,17 @@ export default function UserInfoCard() {
         </div>
 
         {/* Card Content */}
-        <div className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="p-4 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {infoFields.map((field, index) => (
               <div key={index} className="group">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-lg">{field.icon}</span>
+                  <span className="text-base sm:text-lg">{field.icon}</span>
                   <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                     {field.label}
                   </p>
                 </div>
-                <p className="text-base font-semibold text-gray-900 dark:text-white pl-8">
+                <p className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white pl-7 sm:pl-8 truncate">
                   {field.value}
                 </p>
                 <div className="mt-2 h-px bg-gray-200 dark:bg-gray-800 group-hover:bg-gray-300 dark:group-hover:bg-gray-700 transition-colors"></div>
@@ -109,27 +108,27 @@ export default function UserInfoCard() {
           </div>
 
           {/* Social Links Section */}
-          <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
-            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Social Links</h4>
-            <div className="flex flex-wrap gap-4">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-800">
+            <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Social Links</h4>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
               {socialFields.map((social) => (
                 <a
                   key={social.label}
                   href={social.value.startsWith('http') ? social.value : `https://t.me/${social.value.replace('@', '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-2.5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300 hover:scale-105"
+                  className="flex items-center gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300 hover:scale-105"
                 >
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+                  <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white text-sm sm:text-base">
                     {social.icon}
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">{social.label}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 truncate max-w-[200px]">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white truncate">{social.label}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 truncate max-w-[150px] sm:max-w-[200px]">
                       {social.value}
                     </p>
                   </div>
-                  <svg className="w-4 h-4 ml-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 ml-2 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
@@ -143,19 +142,19 @@ export default function UserInfoCard() {
       <Modal isOpen={isOpen} onClose={closeModal} className="max-w-4xl">
         <div className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden">
           {/* Modal Header */}
-          <div className="px-8 pt-8 pb-6 bg-gradient-to-r from-blue-500/5 to-blue-600/5 dark:from-blue-900/10 dark:to-blue-800/10">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <div className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 pb-4 sm:pb-6 bg-gradient-to-r from-blue-500/5 to-blue-600/5 dark:from-blue-900/10 dark:to-blue-800/10">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                   Edit Personal Information
                 </h3>
-                <p className="mt-2 text-gray-600 dark:text-gray-400">
+                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-400">
                   Update your personal details and contact information
                 </p>
               </div>
               <button
                 onClick={closeModal}
-                className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex-shrink-0"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -165,21 +164,21 @@ export default function UserInfoCard() {
           </div>
 
           {/* Modal Content */}
-          <div className="p-8 max-h-[70vh] overflow-y-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="p-4 sm:p-6 md:p-8 max-h-[70vh] overflow-y-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
               {/* Personal Information Section */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 pb-3 border-b border-gray-200 dark:border-gray-800">
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b border-gray-200 dark:border-gray-800">
                   Personal Details
                 </h4>
-                <div className="space-y-5">
+                <div className="space-y-4 sm:space-y-5">
                   <div>
                     <Label>First Name</Label>
                     <Input 
                       type="text" 
                       value={personalInfo.firstName}
                       onChange={(e) => handleInputChange('firstName', e.target.value)}
-                      className="mt-2"
+                      className="mt-1 sm:mt-2"
                     />
                   </div>
                   
@@ -189,7 +188,7 @@ export default function UserInfoCard() {
                       type="text" 
                       value={personalInfo.lastName}
                       onChange={(e) => handleInputChange('lastName', e.target.value)}
-                      className="mt-2"
+                      className="mt-1 sm:mt-2"
                     />
                   </div>
                   
@@ -199,7 +198,7 @@ export default function UserInfoCard() {
                       type="email" 
                       value={personalInfo.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="mt-2"
+                      className="mt-1 sm:mt-2"
                     />
                   </div>
                   
@@ -209,14 +208,14 @@ export default function UserInfoCard() {
                       type="tel" 
                       value={personalInfo.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      className="mt-2"
+                      className="mt-1 sm:mt-2"
                     />
                   </div>
                   
                   <div>
                     <Label>Bio</Label>
                     <textarea
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors mt-2"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors mt-1 sm:mt-2 text-sm sm:text-base"
                       rows={2}
                       value={personalInfo.bio}
                       onChange={(e) => handleInputChange('bio', e.target.value)}
@@ -228,17 +227,17 @@ export default function UserInfoCard() {
 
               {/* Additional Information Section */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 pb-3 border-b border-gray-200 dark:border-gray-800">
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b border-gray-200 dark:border-gray-800">
                   Additional Information
                 </h4>
-                <div className="space-y-5">
+                <div className="space-y-4 sm:space-y-5">
                   <div>
                     <Label>Location</Label>
                     <Input 
                       type="text" 
                       value={personalInfo.location}
                       onChange={(e) => handleInputChange('location', e.target.value)}
-                      className="mt-2"
+                      className="mt-1 sm:mt-2"
                     />
                   </div>
                   
@@ -248,7 +247,7 @@ export default function UserInfoCard() {
                       type="text" 
                       value={personalInfo.birthDate}
                       onChange={(e) => handleInputChange('birthDate', e.target.value)}
-                      className="mt-2"
+                      className="mt-1 sm:mt-2"
                       placeholder="Month Day, Year"
                     />
                   </div>
@@ -256,7 +255,7 @@ export default function UserInfoCard() {
                   <div>
                     <Label>Gender</Label>
                     <select
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors mt-2"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors mt-1 sm:mt-2 text-sm sm:text-base"
                       value={personalInfo.gender}
                       onChange={(e) => handleInputChange('gender', e.target.value)}
                     >
@@ -273,7 +272,7 @@ export default function UserInfoCard() {
                       type="text" 
                       value={personalInfo.nationality}
                       onChange={(e) => handleInputChange('nationality', e.target.value)}
-                      className="mt-2"
+                      className="mt-1 sm:mt-2"
                     />
                   </div>
                 </div>
@@ -281,10 +280,10 @@ export default function UserInfoCard() {
 
               {/* Social Links Section */}
               <div className="lg:col-span-2">
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 pb-3 border-b border-gray-200 dark:border-gray-800">
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b border-gray-200 dark:border-gray-800">
                   Social Links
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   {socialFields.map((social) => (
                     <div key={social.label}>
                       <Label>{social.label}</Label>
@@ -292,7 +291,7 @@ export default function UserInfoCard() {
                         type="text" 
                         value={personalInfo[social.label.toLowerCase() as keyof typeof personalInfo]}
                         onChange={(e) => handleInputChange(social.label.toLowerCase(), e.target.value)}
-                        className="mt-2"
+                        className="mt-1 sm:mt-2"
                         placeholder={`Enter your ${social.label} link`}
                       />
                     </div>
@@ -303,22 +302,22 @@ export default function UserInfoCard() {
           </div>
 
           {/* Modal Footer */}
-          <div className="px-8 py-6 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
-            <div className="flex items-center justify-between">
-              <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 text-center sm:text-left">
                 All changes will be saved automatically
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 w-full sm:w-auto">
                 <Button 
                   variant="outline" 
                   onClick={closeModal}
-                  className="px-6 py-2.5"
+                  className="px-4 sm:px-6 py-2 sm:py-2.5 flex-1 sm:flex-none"
                 >
                   Cancel
                 </Button>
                 <Button 
                   onClick={handleSave}
-                  className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
+                  className="px-4 sm:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 flex-1 sm:flex-none"
                 >
                   Save Changes
                 </Button>
